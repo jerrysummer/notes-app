@@ -28,13 +28,47 @@ class NewNoteModal extends Component {
       color: '',
       title: '',
       content: '',
+      id: '',
     };
   }
 
   //-------------------------------------------------------------------------
   //------------------------- Handler methods -------------------------------
   //-------------------------------------------------------------------------
+  handleCancel = () => {
+    console.log('closing');
+    this.props.closeModal();
+    this.setState(
+      {
+        color: '',
+        title: '',
+        content: '',
+        id: '',
+      }
+    )
+  }
+  handleAdd = () => {
+    console.log('adding');
+    this.props.closeModal();
+    this.setState(
+      {
+        color: '',
+        title: '',
+        content: '',
+        id: '',
+      }
+    )
+  }
 
+  handleInputChange = (event) => {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+    console.log(name, value)
+    this.setState({
+      [name]: value
+    });
+  }
   //-------------------------------------------------------------------------
   //------------------------------- Render ----------------------------------
   //-------------------------------------------------------------------------
@@ -43,13 +77,72 @@ class NewNoteModal extends Component {
     return (
       <div className={`modal ${this.props.isModalOpen? 'open' : 'closed'}`}>
         <div className="new-note-modal">
-          <div>
-            <div className="red"></div>
-            <div className="red"></div>
-            <div className="red"></div>
-            <div className="red"></div>
+          <div className="palette">
+              <input 
+                type="button"
+                className="swatch red"
+                value="red"
+                name="color"
+                onClick={this.handleInputChange}
+              ></input>
+              <input 
+                type="button"
+                className="swatch green"
+                value="green"
+                name="color"
+                onClick={this.handleInputChange}
+              ></input>
+              <input 
+                type="button"
+                className="swatch yellow"
+                value="yellow"
+                name="color"
+                onClick={this.handleInputChange}
+              ></input>
+              <input 
+                type="button"
+                className="swatch blue"
+                value="blue"
+                name="color"
+                onClick={this.handleInputChange}
+              ></input>
           </div>
-          NewNoteModal
+
+          <div className="input">
+            <form>
+              <label>
+                title
+              <input
+                  name="title"
+                  type="text"
+                  value={this.state.title}
+                  onChange={this.handleInputChange} />
+              </label>
+
+              <label>
+                content
+              <input
+                  name="content"
+                  type="text"
+                  value={this.state.content}
+                  onChange={this.handleInputChange} />
+              </label>
+            </form>
+          </div>
+
+          <div className="controls">
+            <button 
+              className="cancel"
+              onClick={this.handleCancel}
+            >
+              Cancel
+            </button>
+            <button 
+              className="add"
+            >
+              Add
+            </button>
+          </div>
         </div>
       </div>
     );
