@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 //------------------------------------ Local imports --------------------------------------
 //-----------------------------------------------------------------------------------------
 
-import '../styles/NewNote.css';
+import '../styles/EditNote.css';
 import { noteColors } from '../helpers/constants';
 import { editNote } from '../actions/Actions';
 
@@ -134,7 +134,7 @@ class EditNoteModal extends Component {
             </button>
             <button
               onClick={this.handleEdit}
-              className="add"
+              className="confirm"
             >
               Save
             </button>

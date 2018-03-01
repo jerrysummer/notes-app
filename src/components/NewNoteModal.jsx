@@ -126,7 +126,7 @@ class NewNoteModal extends Component {
             </button>
             <button 
               onClick={this.handleAdd}
-              className="add"
+              className="confirm"
             >
               Add
             </button>

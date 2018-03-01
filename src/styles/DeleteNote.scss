@@ -19,8 +19,8 @@
       display: none; /* Hidden by default */
     }
 
-    .new-note-modal {
-      height: 755px;
+    .delete-note-modal {
+      height: 200px;
       width: 691px;
       background-color: white;
       border-radius: 10px;
@@ -29,62 +29,6 @@
       box-sizing: border-box;
       padding-top: 22px;
 
-      &.red {
-        border-top: solid 11px #faa9b0;
-      }
-      &.blue {
-        border-top: solid 11px #aeccfb;
-      }
-      &.yellow {
-        border-top: solid 11px #fbdbae;
-      }
-      &.green {
-        border-top: solid 11px #b5ecd1;
-      }
-
-      .palette {
-        height: 40px;  
-        padding-left: 40px;
-        display: flex;
-
-        .swatch {
-          margin: 4px;
-          height: 22px;
-          width: 22px;
-          cursor: pointer;
-          font-size: 0px;
-          border: none;
-        }
-        .red {
-          background-color: #faa9b0;
-        }
-        .blue {
-          background-color: #aeccfb;
-        }
-        .yellow {
-          background-color: #fbdbae;
-        }
-        .green {
-          background-color: #b5ecd1;
-        }
-      }
-
-      .input {
-        display: block;
-        padding: inherit 40px;
-
-        .title {
-          border: none;
-          width: 600px;
-          font-size: 26px;
-        }
-        .content {
-          border: none;
-          width: 600px;
-          height: 500px;
-          font-size: 14px;
-        }
-      }
 
       .controls {
         position: absolute;

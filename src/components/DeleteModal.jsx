@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 //------------------------------------ Local imports --------------------------------------
 //-----------------------------------------------------------------------------------------
 
-import '../styles/NewNote.css';
+import '../styles/DeleteNote.css';
 import { deleteNote } from '../actions/Actions';
 
 
@@ -60,6 +60,11 @@ class DeleteNoteModal extends Component {
   render() {
     return (
       <div className={`modal ${this.props.isDeleteModalOpen ? 'open' : 'closed'}`}>
+        <div className="delete-note-modal">
+          <div className="input">
+            <h1>Delete Note</h1>
+            <p>Are you sure you want to delete this note?</p>
+          </div>
           <div className="controls">
             <button
               className="cancel"
@@ -69,10 +74,11 @@ class DeleteNoteModal extends Component {
             </button>
             <button
               onClick={this.handleDelete}
-              className="add"
+              className="confirm"
             >
               Delete
             </button>
+          </div>
           </div>
       </div>
     );
