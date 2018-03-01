@@ -47,7 +47,6 @@ class Header extends Component {
   render() {
     return (
       <div className="header">
-        HEADER
         <button onClick={this.openModal}>
           + ADD NOTE
         </button>

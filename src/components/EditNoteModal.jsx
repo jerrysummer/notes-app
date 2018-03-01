@@ -38,7 +38,7 @@ class EditNoteModal extends Component {
 
   componentWillReceiveProps(nextProps) {
     if(nextProps.note) {
-      this.setState(nextProps.note);
+      this.setState({...nextProps.note, changed: false});
     }
   }
 
@@ -58,7 +58,7 @@ class EditNoteModal extends Component {
     )
   }
   handleEdit = () => {
-    this.props.editNote(this.state)
+    this.props.editNote(this.state);
     this.props.closeModal();
     this.setState(
       {
