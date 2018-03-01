@@ -32,6 +32,7 @@ class EditNoteModal extends Component {
       title: '',
       content: '',
       id: '',
+      changed: false,
     };
   }
 
@@ -40,8 +41,6 @@ class EditNoteModal extends Component {
       this.setState(nextProps.note);
     }
   }
-    
-
 
   //-------------------------------------------------------------------------
   //------------------------- Handler methods -------------------------------
@@ -54,6 +53,7 @@ class EditNoteModal extends Component {
         title: '',
         content: '',
         id: '',
+        changed: false,
       }
     )
   }
@@ -66,6 +66,7 @@ class EditNoteModal extends Component {
         title: '',
         content: '',
         id: '',
+        changed: false,
       }
     )
   }
@@ -75,7 +76,8 @@ class EditNoteModal extends Component {
     const value = target.value;
     const name = target.name;
     this.setState({
-      [name]: value
+      [name]: value,
+      changed: true,
     });
   }
   //-------------------------------------------------------------------------
@@ -134,7 +136,7 @@ class EditNoteModal extends Component {
             </button>
             <button
               onClick={this.handleEdit}
-              className="confirm"
+              className={`confirm ${this.state.changed? 'valid' : 'invalid'}`}
             >
               Save
             </button>
