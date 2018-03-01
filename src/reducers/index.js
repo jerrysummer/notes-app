@@ -1,7 +1,8 @@
 import { combineReducers } from "redux";
-import NodePad from './reducer_notePad';
+import notes from './reducer_notePad';
 
 const rootReducer = combineReducers({
+  notes: notes,
 });
 
 export default rootReducer;

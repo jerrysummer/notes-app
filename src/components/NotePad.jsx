@@ -39,8 +39,16 @@ class NotePad extends Component {
   render() {
     return (
       <div className="notepad">
-        {`NOTEPAD`}
-        <Note />
+
+        {this.props.notes.map((note,index) => {
+          return (
+            <Note 
+              key={`${index} key`}
+              note={note}
+            />
+          )
+        })}
+
       </div>
     );
   }
@@ -54,6 +62,7 @@ class NotePad extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
+    notes: state.notes,
   }
 }
 

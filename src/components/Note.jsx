@@ -36,15 +36,16 @@ class Note extends Component {
   //-------------------------------------------------------------------------
 
   render() {
+      let { title, content, color, id } = this.props.note;
     return (
       <div className="note">
         <div className="title">
-          <p> TITLE </p>
+          <p> {title} </p>
           <p> edit </p>
           <p> delete </p>
         </div>
         <div className="content">
-          note content
+          {content}
         </div>
 
       </div>
