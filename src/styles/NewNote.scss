@@ -22,6 +22,7 @@
     .new-note-modal {
       height: 755px;
       width: 691px;
+      max-width: 100%;
       background-color: white;
       border-radius: 10px;
       margin: auto;
@@ -78,19 +79,26 @@
           border: none;
           width: 600px;
           font-size: 26px;
+          margin-bottom: 40px;
+          color: #4e6776;
+
         }
         .content {
           border: none;
           width: 600px;
-          height: 500px;
+          height: fit-content;
+          min-height: 300px;
           font-size: 14px;
+          color: #4e6776;
         }
       }
 
       .controls {
         position: absolute;
         height: 100px;
+        min-height: fit-content;
         width: 691px;
+        max-width: 100%;
         display: flex;
         background-color: #fafafa;
         flex-wrap: wrap;
