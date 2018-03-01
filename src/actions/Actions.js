@@ -1,4 +1,4 @@
-import { ADD_NOTE } from '../helpers/constants';
+import { ADD_NOTE, EDIT_NOTE } from '../helpers/constants';
 
 const addNoteToStore = payload => {
   return {
@@ -7,6 +7,14 @@ const addNoteToStore = payload => {
   }
 }
 
+const editNote = payload => {
+  return {
+    type: EDIT_NOTE,
+    payload
+  }
+}
+
 export {
-  addNoteToStore
+  addNoteToStore,
+  editNote,
 }

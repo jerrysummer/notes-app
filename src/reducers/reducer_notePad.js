@@ -1,4 +1,4 @@
-import { ADD_NOTE } from '../helpers/constants';
+import { ADD_NOTE, EDIT_NOTE } from '../helpers/constants';
 
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -6,6 +6,11 @@ export default (state = initialState, action) => {
       let id = state.length;
       action.payload.id = id;
       return [...state, action.payload];
+    case EDIT_NOTE:
+      let editID = action.payload.id;
+      let newState = [...state];
+      newState[editID] = action.payload;
+      return newState;
     default:
       return state;
   }

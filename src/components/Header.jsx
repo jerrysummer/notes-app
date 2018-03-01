@@ -35,7 +35,6 @@ class Header extends Component {
   //-------------------------------------------------------------------------
   openModal = () => {
     this.setState({ isModalOpen: true })
-    console.log('open')
   }
 
   closeModal = () => {
@@ -50,7 +49,7 @@ class Header extends Component {
       <div className="header">
         HEADER
         <button onClick={this.openModal}>
-          ADD NOTE
+          + ADD NOTE
         </button>
         <NewNoteModal 
           isModalOpen={this.state.isModalOpen}

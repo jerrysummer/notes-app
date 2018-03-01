@@ -11,15 +11,15 @@ import { connect } from 'react-redux';
 
 import '../styles/NewNote.css';
 import { noteColors } from '../helpers/constants';
-import { addNoteToStore } from '../actions/Actions';
+import { editNote } from '../actions/Actions';
 
 
 //-----------------------------------------------------------------------------------------
-//------------------------------------ NewNoteModal Component ----------------------------
+//------------------------------------ EditNoteModal Component ----------------------------
 //-----------------------------------------------------------------------------------------
 
 
-class NewNoteModal extends Component {
+class EditNoteModal extends Component {
 
   //-------------------------------------------------------------------------
   //------------------ Constructor & Lifecycle methods ----------------------
@@ -35,6 +35,14 @@ class NewNoteModal extends Component {
     };
   }
 
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.note) {
+      this.setState(nextProps.note);
+    }
+  }
+    
+
+
   //-------------------------------------------------------------------------
   //------------------------- Handler methods -------------------------------
   //-------------------------------------------------------------------------
@@ -49,8 +57,8 @@ class NewNoteModal extends Component {
       }
     )
   }
-  handleAdd = () => {
-    this.props.addNoteToStore(this.state)
+  handleEdit = () => {
+    this.props.editNote(this.state)
     this.props.closeModal();
     this.setState(
       {
@@ -76,12 +84,12 @@ class NewNoteModal extends Component {
 
   render() {
     return (
-      <div className={`modal ${this.props.isModalOpen? 'open' : 'closed'}`}>
+      <div className={`modal ${this.props.isModalOpen ? 'open' : 'closed'}`}>
         <div className={`new-note-modal ${this.state.color}`}>
           <div className="palette">
             {
               noteColors.map((color, index) => {
-                return(
+                return (
                   <input
                     key={color}
                     type="button"
@@ -98,37 +106,37 @@ class NewNoteModal extends Component {
           <div className="input">
             <form>
               <input
-                  className="title"
-                  name="title"
-                  type="text"
-                  placeholder="Untitled"
-                  value={this.state.title}
-                  onChange={this.handleInputChange} 
+                className="title"
+                name="title"
+                type="text"
+                placeholder="Untitled"
+                value={this.state.title}
+                onChange={this.handleInputChange}
               />
 
               <input
-                  className="content"
-                  name="content"
-                  type="textarea"
-                  placeholder="Just start typing here..."
-                  value={this.state.content}
-                  onChange={this.handleInputChange} 
+                className="content"
+                name="content"
+                type="textarea"
+                placeholder="Just start typing here..."
+                value={this.state.content}
+                onChange={this.handleInputChange}
               />
             </form>
           </div>
 
           <div className="controls">
-            <button 
+            <button
               className="cancel"
               onClick={this.handleCancel}
             >
               Cancel
             </button>
-            <button 
-              onClick={this.handleAdd}
+            <button
+              onClick={this.handleEdit}
               className="add"
             >
-              Add
+              Save
             </button>
           </div>
         </div>
@@ -154,4 +162,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, { addNoteToStore })(NewNoteModal);
+export default connect(mapStateToProps, { editNote })(EditNoteModal);

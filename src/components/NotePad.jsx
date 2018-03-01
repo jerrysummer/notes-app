@@ -10,7 +10,8 @@ import { connect } from 'react-redux';
 //-----------------------------------------------------------------------------------------
 
 import Note from './Note.jsx';
-import '../styles/NotePad.css'
+import '../styles/NotePad.css';
+import EditNoteModal from './EditNoteModal';
 
 //-----------------------------------------------------------------------------------------
 //------------------------------------ NotePad Component ----------------------------
@@ -25,13 +26,28 @@ class NotePad extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      isModalOpen: true,
+      openNote: '',
+    };
   }
 
   //-------------------------------------------------------------------------
   //------------------------- Handler methods -------------------------------
   //-------------------------------------------------------------------------
+  
+  openModal = (note) => {
+    this.setState(
+      { 
+        isModalOpen: true,
+        openNote: note, 
+      }
+    )
+  }
 
+  closeModal = () => {
+    this.setState({ isModalOpen: false })
+  }
   //-------------------------------------------------------------------------
   //------------------------------- Render ----------------------------------
   //-------------------------------------------------------------------------
@@ -45,9 +61,18 @@ class NotePad extends Component {
             <Note 
               key={`${index} key`}
               note={note}
+              openModal={this.openModal}
             />
           )
         })}
+
+        <EditNoteModal
+          note={this.state.openNote}
+          isModalOpen={this.state.isModalOpen}
+          openModal={this.openModal}
+          closeModal={this.closeModal}
+        />
+        
 
       </div>
     );

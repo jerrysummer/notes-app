@@ -31,6 +31,10 @@ class Note extends Component {
   //------------------------- Handler methods -------------------------------
   //-------------------------------------------------------------------------
 
+  handleOpen = () => {
+    console.log('open edit');
+    this.props.openModal(this.props.note)
+  }
   //-------------------------------------------------------------------------
   //------------------------------- Render ----------------------------------
   //-------------------------------------------------------------------------
@@ -41,7 +45,13 @@ class Note extends Component {
       <div className={`note ${color}`}>
         <div className="title">
           <p> {title} </p>
-          <p> edit </p>
+
+          <button
+            onClick={this.handleOpen}
+          > 
+
+            edit 
+          </button>
           <p> delete </p>
         </div>
         <div className="content">
