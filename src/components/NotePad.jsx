@@ -10,6 +10,7 @@ import { connect } from 'react-redux';
 //-----------------------------------------------------------------------------------------
 
 import Note from './Note.jsx';
+import '../styles/NotePad.css'
 
 //-----------------------------------------------------------------------------------------
 //------------------------------------ NotePad Component ----------------------------
@@ -37,7 +38,7 @@ class NotePad extends Component {
 
   render() {
     return (
-      <div className="NotePad">
+      <div className="notepad">
         {`NOTEPAD`}
         <Note />
       </div>

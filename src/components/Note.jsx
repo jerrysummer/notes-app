@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 //------------------------------------ Local imports --------------------------------------
 //-----------------------------------------------------------------------------------------
 
-
+import '../styles/Note.css';
 
 //-----------------------------------------------------------------------------------------
 //------------------------------------ Note Component ----------------------------
@@ -37,9 +37,15 @@ class Note extends Component {
 
   render() {
     return (
-      <div className="Note">
-        <div>note title</div>
-        <div>note content</div>
+      <div className="note">
+        <div className="title">
+          <p> TITLE </p>
+          <p> edit </p>
+          <p> delete </p>
+        </div>
+        <div className="content">
+          note content
+        </div>
 
       </div>
     );

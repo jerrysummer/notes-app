@@ -3,9 +3,9 @@ import { ADD_NOTE } from '../helpers/constants';
 export default (state = initialState, action) => {
   switch (action.type) {
     case ADD_NOTE:
-      return [action.payload, ...state];
+      return [...state, action.payload];
     default:
-      return state
+      return state;
   }
 }
 
@@ -16,6 +16,12 @@ const initialState = [
     content: 'content 1',
     color: 'color 1',
     id: 0,
+  },
+  {
+    title: 'title 2',
+    content: 'content 2',
+    color: 'color 2',
+    id: 1,
   }
 ];
 
