@@ -52,13 +52,13 @@ class Note extends Component {
             <button
               onClick={this.handleOpen}
             > 
-              edit 
+              <i className="material-icons">mode_edit</i>
             </button>
 
             <button
               onClick={this.handleDelete}
             > 
-              delete 
+            <i className="material-icons">delete</i>
             </button>
           </div>
 

@@ -98,21 +98,22 @@ class NewNoteModal extends Component {
           <div className="input">
             <form>
               <input
-                  className="title"
-                  name="title"
-                  type="text"
-                  placeholder="Untitled"
-                  value={this.state.title}
-                  onChange={this.handleInputChange} 
+                className="title"
+                name="title"
+                type="text"
+                placeholder="Untitled"
+                value={this.state.title}
+                onChange={this.handleInputChange} 
               />
 
-              <input
-                  className="content"
-                  name="content"
-                  type="textarea"
-                  placeholder="Just start typing here..."
-                  value={this.state.content}
-                  onChange={this.handleInputChange} 
+              <textarea
+                className="content"
+                name="content"
+                type="textarea"
+                placeholder="Just start typing here..."
+                value={this.state.content}
+                onChange={this.handleInputChange} 
+                rows="50"
               />
             </form>
           </div>

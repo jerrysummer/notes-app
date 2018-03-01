@@ -3,24 +3,30 @@ import { ADD_NOTE, EDIT_NOTE, DELETE_NOTE } from '../helpers/constants';
 export default (state = initialState, action) => {
   switch (action.type) {
     case ADD_NOTE:
-      let id = state.length;
+      let id = Date.now();
       action.payload.id = id;
       return [...state, action.payload];
     case EDIT_NOTE:
       let editID = action.payload.id;
       let newState = [...state];
-      newState[editID] = action.payload;
+      let editIdx = null;
+      newState.forEach((note, index) => {
+        if (editID === note.id) {
+          editIdx = index;
+        }
+      })
+      newState[editIdx] = action.payload;
       return newState;
     case DELETE_NOTE:
       let deleteID = action.payload;
       let newDeletedState = [...state];
-      console.log('tobe', newDeletedState, 'id',deleteID)
-
-      newDeletedState.splice(deleteID, 1);
-      newDeletedState = newDeletedState.map((note, index) => {
-        return {...note, id: index}
+      let deleteIdx = null;
+      newDeletedState.forEach((note, index) => {
+        if( deleteID === note.id) {
+          deleteIdx = index;
+        }
       })
-      console.log(newDeletedState)
+      newDeletedState.splice(deleteIdx, 1);
       return newDeletedState;
     default:
       return state;
@@ -54,16 +60,3 @@ const initialState = [
     id: 3,
   },
 ];
-
-
-// might not need class
-class Note {
-  constructor(title, content, color, id) {
-    this.title = title;
-    this.content = content;
-    this.color = color;
-    this.id = id;
-  }
-}
-
-const note = new Note(10, 10);

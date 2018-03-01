@@ -7,13 +7,29 @@
   box-shadow: 0 10px 6px -6px lightgrey;
   background-color: #ffffff;
 
-
   .title {
     display: flex;
     max-height: 60px;
     border-bottom: solid 1px lightgrey;
     padding-left: 21px;
     color: #4e6776;
+    position: relative;
+    align-items: center;
+  }
+
+  .note-controls {
+    position: absolute;
+    right: 20px;
+  }
+
+  button {
+    border: none;
+    color: #dcddde;
+  }
+  button:hover {
+    border: none;
+    color: #66c4cc;
+    cursor: pointer;
   }
 
   .content{

@@ -114,7 +114,7 @@ class EditNoteModal extends Component {
                 onChange={this.handleInputChange}
               />
 
-              <input
+              <textarea
                 className="content"
                 name="content"
                 type="textarea"

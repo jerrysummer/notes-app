@@ -62,7 +62,7 @@ class DeleteNoteModal extends Component {
       <div className={`modal ${this.props.isDeleteModalOpen ? 'open' : 'closed'}`}>
         <div className="delete-note-modal">
           <div className="input">
-            <h1>Delete Note</h1>
+            <h2>Delete Note</h2>
             <p>Are you sure you want to delete this note?</p>
           </div>
           <div className="controls">
