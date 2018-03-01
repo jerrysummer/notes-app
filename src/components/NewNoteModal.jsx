@@ -32,6 +32,7 @@ class NewNoteModal extends Component {
       title: '',
       content: '',
       id: '',
+      changed: false,
     };
   }
 
@@ -46,6 +47,7 @@ class NewNoteModal extends Component {
         title: '',
         content: '',
         id: '',
+        changed: false,
       }
     )
   }
@@ -58,6 +60,7 @@ class NewNoteModal extends Component {
         title: '',
         content: '',
         id: '',
+        changed: false,
       }
     )
   }
@@ -67,7 +70,8 @@ class NewNoteModal extends Component {
     const value = target.value;
     const name = target.name;
     this.setState({
-      [name]: value
+      [name]: value,
+      changed: true,
     });
   }
   //-------------------------------------------------------------------------
@@ -127,7 +131,7 @@ class NewNoteModal extends Component {
             </button>
             <button 
               onClick={this.handleAdd}
-              className="confirm"
+              className={`confirm ${this.state.changed ? 'valid' : 'invalid'}`}
             >
               Add
             </button>
