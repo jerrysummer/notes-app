@@ -3,6 +3,8 @@ import { ADD_NOTE } from '../helpers/constants';
 export default (state = initialState, action) => {
   switch (action.type) {
     case ADD_NOTE:
+      let id = state.length;
+      action.payload.id = id;
       return [...state, action.payload];
     default:
       return state;
@@ -12,26 +14,26 @@ export default (state = initialState, action) => {
 
 const initialState = [
   {
-    title: 'title 1',
-    content: 'content 1',
+    title: 'Demo 1',
+    content: 'Text 1',
     color: 'red',
     id: 0,
   },
   {
-    title: 'title 2',
-    content: 'content 2',
+    title: 'Demo 2',
+    content: 'Text 2',
     color: 'green',
     id: 1,
   },
   {
-    title: 'title 3',
-    content: 'content 3',
+    title: 'Demo 3',
+    content: 'Text 3',
     color: 'yellow',
     id: 2,
   },
   {
-    title: 'title 4',
-    content: 'content 4',
+    title: 'Demo 4',
+    content: 'Text 4',
     color: 'blue',
     id: 3,
   },

@@ -4,4 +4,5 @@ const noteColors = ['red', 'yellow', 'green', 'blue'];
 
 export {
   ADD_NOTE,
+  noteColors,
 }

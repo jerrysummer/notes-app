@@ -20,7 +20,6 @@
     }
 
     .new-note-modal {
-      border-top: solid 11px pink;
       height: 755px;
       width: 691px;
       background-color: white;
@@ -28,11 +27,24 @@
       margin: auto;
       margin-top: 110px;
       box-sizing: border-box;
-      padding: 22px 40px;
+      padding-top: 22px;
+
+      &.red {
+        border-top: solid 11px #faa9b0;
+      }
+      &.blue {
+        border-top: solid 11px #aeccfb;
+      }
+      &.yellow {
+        border-top: solid 11px #fbdbae;
+      }
+      &.green {
+        border-top: solid 11px #b5ecd1;
+      }
 
       .palette {
-        border: solid 1px red;
         height: 40px;  
+        padding-left: 40px;
         display: flex;
 
         .swatch {
@@ -57,14 +69,37 @@
         }
       }
 
+      .input {
+        display: block;
+        padding: inherit 40px;
+
+        .title {
+          border: none;
+          width: 600px;
+          font-size: 26px;
+        }
+        .content {
+          border: none;
+          width: 600px;
+          height: 500px;
+          font-size: 14px;
+        }
+      }
+
       .controls {
         position: absolute;
-        border: solid 1px red;
         height: 100px;
+        width: 691px;
         display: flex;
         background-color: #fafafa;
+        flex-wrap: wrap;
+        font-size: 24px;
+        padding: 20px 40px;
+        box-sizing: border-box;
+        
         
         button {
+          margin: 0;
           position: relative;
           height: 49px;
           width: 112px;
