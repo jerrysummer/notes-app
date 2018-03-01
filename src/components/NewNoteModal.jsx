@@ -9,15 +9,14 @@ import { connect } from 'react-redux';
 //------------------------------------ Local imports --------------------------------------
 //-----------------------------------------------------------------------------------------
 
-import '../styles/Header.css';
-import NewNoteModal from './NewNoteModal';
+import '../styles/NewNote.css';
 
 //-----------------------------------------------------------------------------------------
-//------------------------------------ Header Component ----------------------------
+//------------------------------------ NewNoteModal Component ----------------------------
 //-----------------------------------------------------------------------------------------
 
 
-class Header extends Component {
+class NewNoteModal extends Component {
 
   //-------------------------------------------------------------------------
   //------------------ Constructor & Lifecycle methods ----------------------
@@ -26,37 +25,32 @@ class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isModalOpen: false,
+      color: '',
+      title: '',
+      content: '',
     };
   }
 
   //-------------------------------------------------------------------------
   //------------------------- Handler methods -------------------------------
   //-------------------------------------------------------------------------
-  openModal = () => {
-    this.setState({ isModalOpen: true })
-    console.log('open')
-  }
 
-  closeModal = () => {
-    this.setState({ isModalOpen: false })
-  }
   //-------------------------------------------------------------------------
   //------------------------------- Render ----------------------------------
   //-------------------------------------------------------------------------
 
   render() {
     return (
-      <div className="header">
-        HEADER
-        <button onClick={this.openModal}>
-          ADD NOTE
-        </button>
-        <NewNoteModal 
-          isModalOpen={this.state.isModalOpen}
-          openModal={this.openModal}
-          closeModal={this.closeModal}
-        />
+      <div className={`modal ${this.props.isModalOpen? 'open' : 'closed'}`}>
+        <div className="new-note-modal">
+          <div>
+            <div className="red"></div>
+            <div className="red"></div>
+            <div className="red"></div>
+            <div className="red"></div>
+          </div>
+          NewNoteModal
+        </div>
       </div>
     );
   }
@@ -79,4 +73,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(NewNoteModal);

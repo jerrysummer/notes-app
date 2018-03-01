@@ -38,7 +38,7 @@ class Note extends Component {
   render() {
       let { title, content, color, id } = this.props.note;
     return (
-      <div className="note">
+      <div className={`note ${color}`}>
         <div className="title">
           <p> {title} </p>
           <p> edit </p>

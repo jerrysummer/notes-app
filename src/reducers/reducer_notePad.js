@@ -14,15 +14,27 @@ const initialState = [
   {
     title: 'title 1',
     content: 'content 1',
-    color: 'color 1',
+    color: 'red',
     id: 0,
   },
   {
     title: 'title 2',
     content: 'content 2',
-    color: 'color 2',
+    color: 'green',
     id: 1,
-  }
+  },
+  {
+    title: 'title 3',
+    content: 'content 3',
+    color: 'yellow',
+    id: 2,
+  },
+  {
+    title: 'title 4',
+    content: 'content 4',
+    color: 'blue',
+    id: 3,
+  },
 ];
 
 

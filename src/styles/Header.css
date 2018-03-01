@@ -1,1 +1,1 @@
-.header{border:solid 1px red;background:#1f2532;height:100px}.header button{background-color:#56b6bf;height:50px;width:166px;color:white;border-radius:5px;border:none}
+.header{border:solid 1px red;background:#1f2532;height:100px}.header button{background-color:#56b6bf;height:50px;width:166px;color:white;border-radius:5px;border:none;position:absolute;right:20px;margin:25px 100px;cursor:pointer}

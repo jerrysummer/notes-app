@@ -1,0 +1,32 @@
+
+.modal {
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    display: none; /* Hidden by default */
+
+    &.open{
+      display: block; /* Hidden by default */
+    }
+    &.closed{
+      display: none; /* Hidden by default */
+    }
+
+    .new-note-modal {
+      border-top: solid 11px pink;
+      height: 755px;
+      width: 691px;
+      background-color: white;
+      border-radius: 10px;
+      margin: auto;
+      margin-top: 110px;
+
+    }
+}
