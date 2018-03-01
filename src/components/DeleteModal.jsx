@@ -9,17 +9,16 @@ import { connect } from 'react-redux';
 //------------------------------------ Local imports --------------------------------------
 //-----------------------------------------------------------------------------------------
 
-import Note from './Note.jsx';
-import '../styles/NotePad.css';
-import EditNoteModal from './EditNoteModal';
-import DeleteModal from './DeleteModal';
+import '../styles/NewNote.css';
+import { deleteNote } from '../actions/Actions';
+
 
 //-----------------------------------------------------------------------------------------
-//------------------------------------ NotePad Component ----------------------------
+//------------------------------------ DeleteNoteModal Component ----------------------------
 //-----------------------------------------------------------------------------------------
 
 
-class NotePad extends Component {
+class DeleteNoteModal extends Component {
 
   //-------------------------------------------------------------------------
   //------------------ Constructor & Lifecycle methods ----------------------
@@ -28,76 +27,53 @@ class NotePad extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isModalOpen: false,
-      isDeleteModalOpen: false,
-      openNote: '',
-      deleteNoteID: '',
+      color: 'red',
+      title: '',
+      content: '',
+      id: '',
     };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.deleteNoteID) {
+      this.setState({ id : nextProps.deleteNoteID} );
+    }
   }
 
   //-------------------------------------------------------------------------
   //------------------------- Handler methods -------------------------------
   //-------------------------------------------------------------------------
-  
-  openModal = (note) => {
-    this.setState(
-      { 
-        isModalOpen: true,
-        openNote: note, 
-      }
-    )
+  handleCancel = () => {
+    this.props.closeDeleteModal();
+
+  }
+  handleDelete = () => {
+    this.props.deleteNote( this.state.id );
+    this.props.closeDeleteModal();
   }
 
-  closeModal = () => {
-    this.setState({ isModalOpen: false })
-  }
 
-  openDeleteModal = (id) => {
-    this.setState(
-      { 
-        isDeleteModalOpen: true,
-        deleteNoteID: id,
-      }
-    )
-  }
-
-  closeDeleteModal = () => {
-    this.setState({ isDeleteModalOpen: false })
-  }
   //-------------------------------------------------------------------------
   //------------------------------- Render ----------------------------------
   //-------------------------------------------------------------------------
 
   render() {
     return (
-      <div className="notepad">
-
-        {this.props.notes.map((note,index) => {
-          return (
-            <Note 
-              key={`${index} key`}
-              note={note}
-              openModal={this.openModal}
-              openDeleteModal={this.openDeleteModal}
-            />
-          )
-        })}
-
-        <EditNoteModal
-          note={this.state.openNote}
-          isModalOpen={this.state.isModalOpen}
-          openModal={this.openModal}
-          closeModal={this.closeModal}
-        />
-
-        <DeleteModal
-          deleteNoteID={this.state.deleteNoteID}
-          isDeleteModalOpen={this.state.isDeleteModalOpen}
-          openDeleteModal={this.openDeleteModal}
-          closeDeleteModal={this.closeDeleteModal}
-        />
-        
-
+      <div className={`modal ${this.props.isDeleteModalOpen ? 'open' : 'closed'}`}>
+          <div className="controls">
+            <button
+              className="cancel"
+              onClick={this.handleCancel}
+            >
+              Cancel
+            </button>
+            <button
+              onClick={this.handleDelete}
+              className="add"
+            >
+              Delete
+            </button>
+          </div>
       </div>
     );
   }
@@ -111,7 +87,6 @@ class NotePad extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    notes: state.notes,
   }
 }
 
@@ -121,4 +96,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NotePad);
+export default connect(mapStateToProps, { deleteNote })(DeleteNoteModal);

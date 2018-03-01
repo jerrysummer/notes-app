@@ -1,4 +1,4 @@
-import { ADD_NOTE, EDIT_NOTE } from '../helpers/constants';
+import { ADD_NOTE, EDIT_NOTE, DELETE_NOTE } from '../helpers/constants';
 
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -11,6 +11,11 @@ export default (state = initialState, action) => {
       let newState = [...state];
       newState[editID] = action.payload;
       return newState;
+    case DELETE_NOTE:
+      let deleteID = action.payload;
+      let newDeletedState = [...state];
+      newDeletedState.splice(deleteID, 1);
+      return newDeletedState;
     default:
       return state;
   }
