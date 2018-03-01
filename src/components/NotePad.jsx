@@ -32,7 +32,15 @@ class NotePad extends Component {
       isDeleteModalOpen: false,
       openNote: '',
       deleteNoteID: '',
+      notes: [],
     };
+  }
+
+  componentWillMount() {
+    this.setState({ notes: this.props.notes })
+  }
+  componentWillReceiveProps(nextProps) {
+    this.setState({ notes: nextProps.notes })
   }
 
   //-------------------------------------------------------------------------
@@ -72,7 +80,7 @@ class NotePad extends Component {
     return (
       <div className="notepad">
 
-        {this.props.notes.map((note,index) => {
+        {this.state.notes.map((note,index) => {
           return (
             <Note 
               key={`${index} key`}

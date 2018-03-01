@@ -14,7 +14,13 @@ export default (state = initialState, action) => {
     case DELETE_NOTE:
       let deleteID = action.payload;
       let newDeletedState = [...state];
+      console.log('tobe', newDeletedState, 'id',deleteID)
+
       newDeletedState.splice(deleteID, 1);
+      newDeletedState = newDeletedState.map((note, index) => {
+        return {...note, id: index}
+      })
+      console.log(newDeletedState)
       return newDeletedState;
     default:
       return state;
